@@ -14,7 +14,7 @@ public class TestServiceImpl implements TestService{
 	
 	@Resource(name="sqlSession")
 	private SqlSessionTemplate sqlSession;
-	
+
 	public List<StudentVO> getStudents() {
 		List<StudentVO> result = sqlSession.selectList("test.selectStudent");
 		return result;

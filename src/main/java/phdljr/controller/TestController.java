@@ -23,9 +23,7 @@ public class TestController {
 	@GetMapping("/student")
 	@ResponseBody
 	public List<StudentVO> student() {
-		List<StudentVO> student = testService.getStudents();
-		System.out.println(student);
-		return student;
+		return testService.getStudents();
 	}
 
 }
