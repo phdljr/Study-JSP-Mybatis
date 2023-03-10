@@ -1,6 +1,7 @@
 package phdljr.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class TestController {
 
 	private final TestService testService;
@@ -49,6 +51,11 @@ public class TestController {
 		mv.addObject("student", studentVO);
 		mv.setViewName("student");
 		return mv;
+	}
+
+	@GetMapping("/exception")
+	public void exception() throws Exception {
+		throw new ClassNotFoundException();
 	}
 
 }
