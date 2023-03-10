@@ -6,4 +6,8 @@
         SELECT * FROM student
     </select>
 
+    <select id="PRselectStudent" resultType="phdljr.vo.StudentVO">
+        CALL PR_STUDENT(#{id})
+    </select>
+
 </mapper>

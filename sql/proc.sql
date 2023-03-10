@@ -1,0 +1,12 @@
+DELIMITER $$
+CREATE PROCEDURE PR_STUDENT (
+    PARAM_NUM INTEGER
+)
+BEGIN
+
+    SELECT *
+        FROM student
+        WHERE id = PARAM_NUM;
+
+END $$
+DELIMITER ;

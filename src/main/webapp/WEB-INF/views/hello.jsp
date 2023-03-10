@@ -7,7 +7,7 @@
         <title>hello</title>
     </head>
     <body>
-        <div id="hello-div">hello!</div>
+        <div id="hello-div">안녕!</div>
         <script type="module" src="/js/hello-div-click.js"></script>
     </body>
 </html>

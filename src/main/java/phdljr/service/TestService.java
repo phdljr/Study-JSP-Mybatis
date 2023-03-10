@@ -6,4 +6,5 @@ import phdljr.vo.StudentVO;
 
 public interface TestService {
 	List<StudentVO> getStudents();
+	StudentVO getStudentsByProc(Long id);
 }
