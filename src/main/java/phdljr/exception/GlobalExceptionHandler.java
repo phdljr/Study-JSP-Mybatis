@@ -9,15 +9,10 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    public String custom() {
-        return "error";
-    }
-
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String noPage(NoHandlerFoundException e){
-        return "error";
+        return "error/error";
     }
 
 }

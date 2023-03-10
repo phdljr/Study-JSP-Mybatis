@@ -23,4 +23,9 @@ public class TestServiceImpl implements TestService {
         System.out.println(result);
         return result;
     }
+
+    public StudentVO getStudentByName(String nickname){
+        StudentVO result = sqlSession.selectOne("test.PRselectStudentByNickname", nickname);
+        return result;
+    }
 }

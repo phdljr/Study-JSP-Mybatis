@@ -10,4 +10,8 @@
         CALL PR_STUDENT(#{id})
     </select>
 
+    <select id="PRselectStudentByNickname" resultType="phdljr.vo.StudentVO">
+        CALL PR_STUDENT_NAME(#{nickname})
+    </select>
+
 </mapper>
