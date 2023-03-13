@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TestServiceImplTest extends TestCase {
 
     @Autowired
-    private TestService testService;
+    private StudentService testService;
 
     @Test
     public void getStudent(){

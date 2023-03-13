@@ -8,24 +8,33 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class TestServiceImpl implements TestService {
+public class StudentServiceImpl implements StudentService {
 
     @Resource(name = "sqlSession")
     private SqlSessionTemplate sqlSession;
 
+    @Override
     public List<StudentVO> getStudents() {
         List<StudentVO> result = sqlSession.selectList("test.selectStudent");
         return result;
     }
 
+    @Override
     public StudentVO getStudentsByProc(Long id) {
         StudentVO result = sqlSession.selectOne("test.PRselectStudent", id);
         System.out.println(result);
         return result;
     }
 
+    @Override
     public StudentVO getStudentByName(String nickname){
         StudentVO result = sqlSession.selectOne("test.PRselectStudentByNickname", nickname);
         return result;
+    }
+
+    @Override
+    public Long insertStudent(StudentVO studentVO) {
+        int result = sqlSession.insert("test.PRinsertStudent", studentVO);
+        return (long)result;
     }
 }

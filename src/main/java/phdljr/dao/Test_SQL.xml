@@ -14,4 +14,8 @@
         CALL PR_STUDENT_NAME(#{nickname})
     </select>
 
+    <insert id="PRinsertStudent">
+        CALL PR_INSERT_STUDENT(#{nickname}, #{pw})
+    </insert>
+
 </mapper>

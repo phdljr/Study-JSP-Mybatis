@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         "file:src/main/webapp/WEB-INF/spring/servlet-context.xml",
         "file:src/main/webapp/WEB-INF/spring/datasource-context.xml"
 })
-public class TestControllerTest extends TestCase {
+public class TestControllerStudent extends TestCase {
     private MockMvc mockMvc;
 
     @Autowired
