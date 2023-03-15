@@ -11,8 +11,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String noPage(NoHandlerFoundException e){
+    public String noPage(NoHandlerFoundException e) {
         return "error/error";
     }
-
 }

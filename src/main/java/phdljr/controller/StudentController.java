@@ -1,31 +1,30 @@
 package phdljr.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONArray;
-import net.sf.json.spring.web.servlet.view.JsonView;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import phdljr.service.StudentService;
 import phdljr.vo.StudentVO;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Controller
 @RequestMapping("/student")
 @RequiredArgsConstructor
+@Slf4j
 public class StudentController {
 
     private final StudentService studentService;
 
     @GetMapping
-    @ResponseBody
     public ModelAndView student() {
         List<StudentVO> students = studentService.getStudents();
         JSONArray result = JSONArray.fromObject(students);
+        log.info("로그 출력");
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("students", result.toString());
@@ -34,23 +33,17 @@ public class StudentController {
     }
 
     @GetMapping("/id/{id}")
-    public ModelAndView getStudentById(@PathVariable Long id) {
+    @ResponseBody
+    public StudentVO getStudentById(@PathVariable Long id) {
         StudentVO studentVO = studentService.getStudentsByProc(id);
-
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("student", studentVO);
-        mv.setViewName("student");
-        return mv;
+        return studentVO;
     }
 
     @GetMapping("/nickname/{nickname}")
-    public ModelAndView getStudentByName(@PathVariable String nickname) {
+    @ResponseBody
+    public StudentVO getStudentByName(@PathVariable String nickname) {
         StudentVO studentVO = studentService.getStudentByName(nickname);
-
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("student", studentVO);
-        mv.setViewName("student");
-        return mv;
+        return studentVO;
     }
 
     @GetMapping("/insert")
