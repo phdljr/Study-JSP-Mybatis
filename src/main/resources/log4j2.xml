@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout  charset="UTF-8" disableAnsi="false"  pattern="%d{HH:mm:ss.SSS} [%highlight{%-5level}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=green bold, DEBUG=green bold, TRACE=blue}] %logger{36}.%M() @%L - %msg%n"/>
+        </Console>
+    </appenders>
+
+    <loggers>
+        <logger name="phdljr.controller" level="info" additivity="false">
+            <appender-ref ref="console"/>
+        </logger>
+        <Root level="info">
+            <AppenderRef ref="console" />
+        </Root>
+    </loggers>
+</configuration>
