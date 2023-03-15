@@ -24,7 +24,7 @@ public class StudentController {
     public ModelAndView student() {
         List<StudentVO> students = studentService.getStudents();
         JSONArray result = JSONArray.fromObject(students);
-        log.info("로그 출력");
+        log.info("{}", result);
 
         ModelAndView mv = new ModelAndView();
         mv.addObject("students", result.toString());
